@@ -1,0 +1,57 @@
+# NoobTunnel Client Configuration
+# Save as client.yaml and run: ntunnel --mode client --config client.yaml
+
+# Your VPS server address and port
+server: "your-vps-ip:7000"  # Replace with your actual VPS IP
+
+# Auto-reconnect settings
+reconnect: true
+reconnect_delay: 5  # seconds
+
+log_level: info  # Options: debug, info, warn, error
+
+# Define your tunnels
+tunnels:
+  # Web application tunnel
+  webapp:
+    local_port: 3000      # Your local service port
+    remote_port: 80       # Public port on VPS
+    local_host: "127.0.0.1"  # Local service host
+  
+  # API service tunnel
+  api:
+    local_port: 8080
+    remote_port: 8080
+    local_host: "127.0.0.1"
+    
+  # Development server tunnel
+  dev:
+    local_port: 4000
+    remote_port: 4000
+    local_host: "127.0.0.1"
+
+# Example configurations for different scenarios:
+
+# React Development Server:
+#  react-app:
+#    local_port: 3000
+#    remote_port: 3000
+#    local_host: "127.0.0.1"
+
+# Node.js API:
+#  nodejs-api:
+#    local_port: 5000
+#    remote_port: 5000
+#    local_host: "127.0.0.1"
+
+# Local Database (be careful with security!):
+#  database:
+#    local_port: 3306
+#    remote_port: 3306
+#    local_host: "127.0.0.1"
+
+# Home Assistant:
+#  homeassistant:
+#    local_port: 8123
+#    remote_port: 8123
+#    local_host: "127.0.0.1"

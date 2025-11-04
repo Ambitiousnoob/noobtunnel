@@ -1,0 +1,33 @@
+# NoobTunnel Server Configuration
+# Save as server.yaml and run: ntunnel --mode server --config server.yaml
+
+port: 7000  # Main server port for client connections
+max_connections: 100  # Maximum total connections
+rate_limit: 60  # Global rate limit (requests per minute)
+timeout_minutes: 30  # Connection timeout in minutes
+
+# Ports that clients are allowed to use for tunneling
+# Add/remove ports as needed for your use case
+allowed_ports:
+  - 80      # HTTP
+  - 8080    # HTTP Alternative
+  - 3000    # Development servers
+  - 3001    # Development servers
+  - 8000    # HTTP Alternative
+  - 8001    # HTTP Alternative
+  - 9000    # HTTP Alternative
+  - 5000    # Common dev port
+  - 4000    # Common dev port
+
+# Block specific IP addresses (optional)
+banned_ips:
+  # - "192.168.1.100"
+  # - "10.0.0.50"
+
+log_level: info  # Options: debug, info, warn, error
+
+# Security settings to protect your VPS
+security:
+  enabled: true
+  max_connections_per_ip: 5   # Max connections from single IP
+  rate_limit_per_ip: 30       # Rate limit per IP (requests per minute)
